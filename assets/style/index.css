@@ -27,15 +27,19 @@ header {
   height: 80px;
   line-height: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border-bottom: 1px solid var(--primary-border-colour);
   box-shadow: 0 1px 2px var(--primary-shadow-colour);
   input[type=text] {
     margin-left: 40px;
     height: 40px;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid var(--primary-border-colour);
     border-radius: 20px;
+  }
+  input[type=text]:focus {
+    border-color: gray;
+    box-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
   a { 
     color: var(--primary-text-colour);
@@ -50,11 +54,20 @@ header {
   }
 }
 
-.icon {
+.icon, .user-icon {
   align-self: center;
   height: 50px;
   width: 50px;
   border: 1px solid var(--primary-border-colour);
-  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon {
+  border-radius: 15px;
   background-color: aquamarine;
+}
+
+.user-icon {
+  border-radius: 50%;
+  background-color: aqua;
 }
