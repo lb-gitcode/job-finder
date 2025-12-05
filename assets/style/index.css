@@ -1,5 +1,7 @@
 @import './reset.css';
 
+/* Basic Formatting */
+
 :root {
   --primary-bg-colour: rgb(238, 238, 238);
   --secondary-bg-colour: rgb(254, 254, 255);
@@ -19,7 +21,10 @@ body { background-color: var(--primary-bg-colour); }
   border: 1px solid var(--primary-border-colour);
   box-shadow: 1px 1px 2px var(--primary-shadow-colour);
   background-color: var(--secondary-bg-colour);
+  border-radius: 6px;
 }
+
+/* Header */
 
 header {
   background-color: var(--secondary-bg-colour);
@@ -54,6 +59,9 @@ header {
   }
 }
 
+
+/* Icons */
+
 .icon, .user-icon {
   align-self: center;
   height: 50px;
@@ -70,4 +78,42 @@ header {
 .user-icon {
   border-radius: 50%;
   background-color: aqua;
+}
+
+/* Main Feed */
+
+.main-feed, .post-container { 
+  height: 750px; 
+}
+
+.main-feed {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.post-container {
+  position: absolute;
+  margin: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+  width: 40%;
+}
+
+/* Side Boxes */
+
+.user-info, .people-know {
+  top: 20px;
+  position: sticky;
+  overflow: visible;
+  margin: 20px;
+  height: 350px;
+  width: 25%;
+}
+
+.people-know {
+  margin-left: auto;
 }
