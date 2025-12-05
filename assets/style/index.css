@@ -1,17 +1,60 @@
 @import './reset.css';
 
-* { transition: all 0.2 ease-in-out; }
+:root {
+  --primary-bg-colour: rgb(238, 238, 238);
+  --secondary-bg-colour: rgb(254, 254, 255);
+  --primary-border-colour: rgb(209, 209, 209);
+  --primary-shadow-colour: rgba(211, 211, 211, 0.5);
+  --secondary-shadow-colour: rgb(133, 133, 133);
+  --primary-text-colour: rgb(40, 39, 43);
+}
+
+* { transition: all 0.2s ease-in-out; }
+
+.flex { display: flex; }
+
+body { background-color: var(--primary-bg-colour); }
+
+.white-box {
+  border: 1px solid var(--primary-border-colour);
+  box-shadow: 1px 1px 2px var(--primary-shadow-colour);
+  background-color: var(--secondary-bg-colour);
+}
 
 header {
-  height: 70px;
-  line-height: 70px;
+  background-color: var(--secondary-bg-colour);
+  padding: 0 30px;
+  height: 80px;
+  line-height: 80px;
   display: flex;
-  justify-content: space-evenly;
-  a {
-    text-decoration: none;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--primary-border-colour);
+  box-shadow: 0 1px 2px var(--primary-shadow-colour);
+  input[type=text] {
+    margin-left: 40px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid var(--primary-border-colour);
+    border-radius: 20px;
+  }
+  a { 
+    color: var(--primary-text-colour);
+    text-decoration: none; 
+  }
+  a:hover {
+    text-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
   nav {
-    gap: 70px;
+    gap: 30px;
     display: flex;
   }
+}
+
+.icon {
+  align-self: center;
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--primary-border-colour);
+  border-radius: 50%;
+  background-color: aquamarine;
 }
