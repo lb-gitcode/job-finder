@@ -1,1 +1,17 @@
 @import './reset.css';
+
+* { transition: all 0.2 ease-in-out; }
+
+header {
+  height: 70px;
+  line-height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  a {
+    text-decoration: none;
+  }
+  nav {
+    gap: 70px;
+    display: flex;
+  }
+}
