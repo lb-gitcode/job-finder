@@ -8,7 +8,9 @@
   --primary-border-colour: rgb(209, 209, 209);
   --primary-shadow-colour: rgba(211, 211, 211, 0.5);
   --secondary-shadow-colour: rgb(133, 133, 133);
+  --primary-accent-colour: rgb(90, 135, 233);
   --primary-text-colour: rgb(40, 39, 43);
+  --secondary-text-colour: rgb(122, 120, 136);
 }
 
 * { transition: all 0.2s ease-in-out; }
@@ -28,17 +30,18 @@ body { background-color: var(--primary-bg-colour); }
 
 header {
   background-color: var(--secondary-bg-colour);
-  padding: 0 30px;
+  padding: 0 40px;
   height: 80px;
   line-height: 80px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-bottom: 1px solid var(--primary-border-colour);
   box-shadow: 0 1px 2px var(--primary-shadow-colour);
   input[type=text] {
     margin-left: 40px;
     height: 40px;
-    padding: 10px;
+    width: 240px;
+    padding: 10px 10px 10px 35px;
     border: 1px solid var(--primary-border-colour);
     border-radius: 20px;
   }
@@ -54,30 +57,48 @@ header {
     text-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
   nav {
+    margin-left: -300px;
     gap: 30px;
     display: flex;
   }
 }
 
+.searchbar {
+  position: relative;
+  i {
+    color: var(--secondary-text-colour);
+    position: absolute;
+    left: 50px;
+    top: 32px;
+  }
+}
 
 /* Icons */
 
 .icon, .user-icon {
   align-self: center;
   height: 50px;
-  width: 50px;
-  border: 1px solid var(--primary-border-colour);
+  min-width: 50px;
+  border: 1px solid var(--primary-shadow-colour);
   cursor: pointer;
 }
 
 .icon {
+  padding-top: 4px;
   border-radius: 15px;
-  background-color: aquamarine;
+  background-color: var(--primary-accent-colour);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  i {
+    color: var(--secondary-bg-colour);
+    font-size: 28px;
+  }
 }
 
 .user-icon {
   border-radius: 50%;
-  background-color: aqua;
+  background-color: var(--primary-accent-colour);
 }
 
 /* Main Feed */
@@ -136,4 +157,63 @@ header {
 
 .people-know {
   margin-left: auto;
+}
+
+/* Media Queries */
+
+@media (max-width: 1280px) {
+  header nav { margin: 0px 30px; }
+}
+
+@media (max-width: 920px) {
+  header {
+    nav {
+      gap: 25px;
+      font-size: 14px;
+    }
+    input[type=text] {
+      font-size: 14px;
+      margin-left: 30px;
+      width: 160px;
+    }
+  }
+  .icon, .user-icon {
+    height: 40px;
+    min-width: 40px;
+  }
+  .icon {
+    border-radius: 12px;
+    i { font-size: 22px; }
+  }
+  .searchbar i { left: 40px; }
+}
+
+@media (max-width: 800px) {
+  header {
+    nav {
+      gap: 22px;
+      font-size: 12px;
+    }
+    input[type=text] {
+      margin-left: 25px;
+      width: 140px;
+      font-size: 12px;
+    }
+  }
+  .searchbar i { left: 35px; }
+}
+
+@media (max-width: 720px) {
+  header {
+    nav {
+      margin: 0px 20px;
+      gap: 18px;
+      font-size: 11px;
+    }
+    input[type=text] {
+      width: 120px;
+      font-size: 11px;
+    }
+  }
+  .searchbar i { top: 33px; }
 }
