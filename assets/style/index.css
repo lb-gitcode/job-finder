@@ -14,7 +14,10 @@
   --secondary-text-colour: rgb(122, 120, 136);
 }
 
-* { transition: all 0.2s ease-in-out; }
+* { 
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.2s ease-in-out; 
+}
 
 .flex { display: flex; }
 
@@ -26,6 +29,27 @@ body { background-color: var(--primary-bg-colour); }
   background-color: var(--secondary-bg-colour);
   border-radius: 6px;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~ Login Page ~~~~~~~~~~~~~~~~~~~~~~ */
+
+.login-logo {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--primary-accent-colour);
+  .in {
+    margin: 4px 1px 0;
+    padding: 0 6px;
+    border-radius: 8px;
+    font-size: 27px;
+    font-weight: 700;
+    background-color: var(--primary-accent-colour);
+    color: var(--secondary-bg-colour);
+  }
+}
+
+.in::first-letter { letter-spacing: 1px; }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~ Main Page ~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* Header */
 
@@ -188,7 +212,7 @@ header {
   overflow: visible;
   margin: 30px;
   padding: 20px;
-  height: 620px;
+  height: 670px;
   width: 25%;
   h3 {
     margin-top: 10px;
@@ -225,7 +249,7 @@ header {
 @media (max-width: 1280px) {
   header nav { margin: 0px 30px; }
   .user-info, .people-know { 
-    height: 610px;
+    height: 660px;
     padding: 15px;
     h3 { font-size: 16px; }
   }
@@ -241,7 +265,7 @@ header {
 
 @media (max-width: 1060px) {
   .user-info, .people-know { 
-    height: 600px;
+    height: 650px;
     padding: 10px;
     h3 { font-size: 14px; }
   }
@@ -274,7 +298,7 @@ header {
     i { font-size: 22px; }
   }
   .user-info, .people-know {
-    height: 480px;
+    height: 520px;
   }
   .searchbar i { left: 40px; }
   .person-know { margin: 4px; }
@@ -317,6 +341,15 @@ header {
   .searchbar i { left: 35px; }
 }
 
+@media (max-width: 740px) {
+  .user-info, .people-know {
+    h3 {
+      font-size: 10px;
+    }
+  }
+
+}
+
 @media (max-width: 720px) {
   header {
     nav {
@@ -338,4 +371,13 @@ header {
   .poster-name { font-size: 12px; }
   .poster-time { font-size: 12px; }
   .searchbar i { top: 33px; }
+}
+
+@media (max-width: 580px) {
+  .user-info, .people-know {
+    h3 {
+      font-size: 8px;
+    }
+  }
+
 }
