@@ -9,7 +9,10 @@
   --primary-shadow-colour: rgba(211, 211, 211, 0.5);
   --secondary-shadow-colour: rgb(133, 133, 133);
   --primary-accent-colour: rgb(90, 135, 233);
-  --primary-accent-hover-colour: rgb(33, 78, 177);
+  --primary-accent-hover-colour: rgb(42, 89, 192);
+  --secondary-accent-colour: rgb(190, 220, 255);
+  --tertiary-accent-colour: rgb(234, 234, 238);
+  --tertiary-accent-hover-colour: rgb(197, 197, 206);
   --primary-text-colour: rgb(40, 39, 43);
   --secondary-text-colour: rgb(122, 120, 136);
 }
@@ -32,22 +35,108 @@ body { background-color: var(--primary-bg-colour); }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~ Login Page ~~~~~~~~~~~~~~~~~~~~~~ */
 
+.login-banner {
+  width: 35%;
+  height: 100svh;
+  justify-content: center;
+  background-color: var(--secondary-accent-colour);
+  box-shadow: 1px 0 2px var(--primary-shadow-colour);
+}
+
 .login-logo {
-  font-size: 30px;
+  margin: 60px 20px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--primary-accent-colour);
   .in {
-    margin: 4px 1px 0;
+    height: 40px;
+    margin: 5px 2px 0;
     padding: 0 6px;
     border-radius: 8px;
     font-size: 27px;
     font-weight: 700;
     background-color: var(--primary-accent-colour);
-    color: var(--secondary-bg-colour);
+    color: var(--primary-bg-colour);
   }
 }
 
 .in::first-letter { letter-spacing: 1px; }
+
+.login-main {
+  background-color: var(--secondary-bg-colour);
+  height: 100svh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.login-container {
+  margin-top: -50px;
+  width: 60%;
+  height: 67%;
+  padding: 12px;
+  justify-content: center;
+  flex-direction: column;
+  h3 { 
+    color: var(--primary-text-colour);
+    font-size: 32px; 
+  }
+}
+
+.blue-text { color: var(--primary-accent-colour); }
+
+.job-text {
+  margin: 38px 0;
+  color: var(--secondary-text-colour);
+  font-size: 18px;
+}
+
+.login-form {
+  input[type=text] {
+    margin-bottom: 12px;
+    padding: 14px;
+    font-size: 14px;
+    width: 100%;
+    height: 50px;
+    border-radius: 28px;
+    background-color: white;
+    border: 1px solid var(--primary-shadow-colour);
+  }
+  input[type=button] {
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px var(--primary-shadow-colour);
+  }
+}
+
+#login-btn {
+  background-color: var(--primary-accent-colour);
+  color: var(--primary-bg-colour);
+}
+
+#login-btn:hover {
+  background-color: var(--primary-accent-hover-colour);
+  color: var(--primary-bg-colour);
+}
+
+#login-btn:active {
+  background-color: var(--secondary-accent-colour);
+  color: var(--primary-text-colour);
+}
+
+#sign-up-btn {
+  background-color: var(--tertiary-accent-colour);
+  color: var(--primary-text-colour);
+}
+
+#sign-up-btn:hover { background-color: var(--tertiary-accent-hover-colour); }
+
+#sign-up-btn:active {
+  background-color: var(--secondary-shadow-colour);
+  color: var(--primary-bg-colour);
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~ Main Page ~~~~~~~~~~~~~~~~~~~~~~ */
 

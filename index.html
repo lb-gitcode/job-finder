@@ -16,13 +16,30 @@
   </head>
   <body>
     <main class="flex">
-      <div class="login-banner">
-        <h3 class="login-logo flex">
+      <div class="login-banner flex">
+        <h2 class="login-logo flex">
           JobF<div class="in">in</div class="in">der
-        </h3>
+        </h2>
       </div>
-      <div class="login-form">
-
+      <div class="login-main">
+        <div class="login-container flex">
+          <div>
+            <h3>Welcome to <span class="blue-text">JobFinder</span></h3>
+          </div>
+          <div>
+            <p class="job-text">We'll help you find the perfect job for your unique skills.</p>
+          </div>
+          <div>
+            <form class="login-form">
+              <input type="text" placeholder="Email or Phone" name="user-email-or-phone" id="user-email" required>
+              <input type="text" placeholder="Password" name="user-password" id="user-password" required>
+              <div class="flex">
+                <input type="button" value="Login" name="login-btn" id="login-btn">
+                <input type="button" value="Sign Up" name="sign-up-btn" id="sign-up-btn">
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </main>
     <noscript>
