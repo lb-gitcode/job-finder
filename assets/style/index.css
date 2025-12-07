@@ -80,16 +80,16 @@ header {
   height: 50px;
   min-width: 50px;
   border: 1px solid var(--primary-shadow-colour);
+  background-color: var(--primary-accent-colour);
   cursor: pointer;
 }
 
 .icon {
-  padding-top: 4px;
   border-radius: 15px;
-  background-color: var(--primary-accent-colour);
   justify-content: center;
   display: flex;
   align-items: center;
+  a { padding-top: 10px; }
   i {
     color: var(--secondary-bg-colour);
     font-size: 28px;
@@ -98,16 +98,17 @@ header {
 
 .user-icon {
   border-radius: 50%;
-  background-color: var(--primary-accent-colour);
 }
 
 /* Main Feed */
 
 .main-feed, .post-container { 
-  height: 750px; 
+  
+  overflow-y: auto;
 }
 
 .main-feed {
+  min-height: calc(100dvh - 100px); 
   position: relative;
   display: flex;
   margin-bottom: 10px;
@@ -115,7 +116,7 @@ header {
 
 .post-container {
   position: absolute;
-  margin: 20px;
+  margin: 30px 20px 20px 20px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -125,6 +126,7 @@ header {
 }
 
 .post {
+  margin-bottom: 20px;
   padding: 20px;
 }
 
@@ -147,22 +149,47 @@ header {
 /* Side Boxes */
 
 .user-info, .people-know {
-  top: 20px;
+  top: 30px;
   position: sticky;
   overflow: visible;
-  margin: 20px;
+  margin: 30px;
+  padding: 20px;
   height: 350px;
   width: 25%;
+  h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.user-info .user-icon { 
+  height: 50px;
+  width: 50px;
 }
 
 .people-know {
   margin-left: auto;
+  h3 { margin-right: 80px; }
 }
 
 /* Media Queries */
 
 @media (max-width: 1280px) {
   header nav { margin: 0px 30px; }
+  .user-info, .people-know { 
+    padding: 15px;
+    h3 { font-size: 16px; }
+  }
+  .people-know h3 { margin-right: 50px; }
+}
+
+@media (max-width: 1060px) {
+  .user-info, .people-know { 
+    padding: 10px;
+    h3 { font-size: 14px; }
+  }
+  .people-know h3 { margin-right: 30px; }
 }
 
 @media (max-width: 920px) {
@@ -181,8 +208,13 @@ header {
     height: 40px;
     min-width: 40px;
   }
+  .user-info .user-icon { 
+    height: 40px;
+    width: 40px;
+  }
   .icon {
     border-radius: 12px;
+    a { padding-top: 7px; }
     i { font-size: 22px; }
   }
   .searchbar i { left: 40px; }
@@ -200,6 +232,17 @@ header {
       font-size: 12px;
     }
   }
+  .user-info, .people-know { 
+    width: 24%;
+    margin-top: 25px; 
+    h3 { 
+      font-weight: 500;
+      margin-top: 8px; 
+    }
+  }
+  .post-container { margin: 25px 15px 15px 15px; }
+  .poster-name { font-size: 14px; }
+  .poster-time { font-size: 14px; }
   .searchbar i { left: 35px; }
 }
 
@@ -215,5 +258,12 @@ header {
       font-size: 11px;
     }
   }
+  .user-info, .people-know { 
+    width: 23%;
+    margin-top: 20px; 
+  }
+  .post-container { margin: 20px 15px 15px 15px; }
+  .poster-name { font-size: 12px; }
+  .poster-time { font-size: 12px; }
   .searchbar i { top: 33px; }
 }
