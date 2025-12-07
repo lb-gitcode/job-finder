@@ -9,10 +9,180 @@
     <link rel="icon" href="./assets/media/favicon.png?v=2" type="image/x-icon">
     <link rel="stylesheet" href="./assets/style/index.css" media="all">
     <script src="./assets/script/app.js" defer type="module"></script>
-    <!-- Links for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Home</title>
   </head>
   <body>
+    <header>
+      <div class="flex">
+        <div class="icon">
+          <a href="./home.html" class="in-logo"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="searchbar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search..." name="searchbar">
+        </div>
+      </div>
+      <nav>
+        <ul><a href=#>Home</a></ul>
+        <ul><a href=#>Profile</a></ul>
+        <ul><a href=#>Connections</a></ul>
+        <ul><a href=#>Messages</a></ul>
+        <ul><a href=#>Premium</a></ul>
+      </nav>
+      <div class="user-icon"></div>
+    </header>
+    <main class="main-feed">
+      <div class="user-info white-box">
+        <h3>Name&nbsp;Lastname</h3>
+        <div class="info-icon"></div>
+      </div>
+      <div class="post-container">
+        <div class="post-maker white-box">
+          <textarea id="new-post-text" placeholder="Share your thoughts..." maxlength="140"></textarea>
+          <div class="flex">
+            <div id="new-post-file"><i class="fa-regular fa-image"></i></div>
+            <input type="button" value="Post" id="post-btn" name="Create Post Button">
+          </div>
+        </div>
+        <div id="post-feed">
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repudiandae recusandae libero ipsam provident beatae molestias nemo, vero enim blanditiis accusantium dolorem quod similique nisi velit dolores totam earum! Dolor.</p>
+          </div>
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repudiandae recusandae libero ipsam provident beatae molestias nemo, vero enim blanditiis accusantium dolorem quod similique nisi velit dolores totam earum! Dolor.</p>
+          </div>
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repudiandae recusandae libero ipsam provident beatae molestias nemo, vero enim blanditiis accusantium dolorem quod similique nisi velit dolores totam earum! Dolor.</p>
+          </div>
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus eius sit enim esse, et maxime officiis cum asperiores in officia at vel ea unde adipisci, dolor molestiae molestias rem accusamus?</p>
+          </div>
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus eius sit enim esse, et maxime officiis cum asperiores in officia at vel ea unde adipisci, dolor molestiae molestias rem accusamus?</p>
+          </div>
+          <div class="post white-box">
+            <div class="poster-info flex">
+              <div class="user-icon"></div>
+              <p class="poster-name">Name&nbsp;Lastname</p>
+              <p class="poster-time">10:00AM</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus eius sit enim esse, et maxime officiis cum asperiores in officia at vel ea unde adipisci, dolor molestiae molestias rem accusamus?</p>
+          </div>
+        </div>
+        </div>
+      <div class="people-know white-box">
+        <h3>People&nbsp;you&nbsp;may&nbsp;know:</h3>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+        <div id="people-container">
+          <div class="person-know flex">
+            <div id="person-icon"></div>
+            <p id="person-name">Name</p>
+            <p id="person-state">Manitoba</p>
+            <p id="person-country">CA</p>
+          </div>
+        </div>
+      </div>
+    </main>
     <noscript>
       <p>This page requires a JavaScript-enabled browser.</p>
     </noscript>

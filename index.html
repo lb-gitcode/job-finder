@@ -9,10 +9,40 @@
     <link rel="icon" href="./assets/media/favicon.png?v=2" type="image/x-icon">
     <link rel="stylesheet" href="./assets/style/index.css" media="all">
     <script src="./assets/script/app.js" defer type="module"></script>
-    <!-- Links for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Index</title>
   </head>
   <body>
+    <main class="flex">
+      <div class="login-banner flex">
+        <h2 class="login-logo flex">
+          JobF<div class="in">in</div class="in">der
+        </h2>
+      </div>
+      <div class="login-main">
+        <div class="login-container flex">
+          <div>
+            <h3>Welcome to <span class="blue-text">JobFinder</span></h3>
+          </div>
+          <div>
+            <p class="job-text">We'll help you find the perfect job for your unique skills.</p>
+          </div>
+          <div>
+            <form class="login-form">
+              <input type="text" placeholder="Email or Phone" name="user-email-or-phone" id="user-email" required>
+              <input type="text" placeholder="Password" name="user-password" id="user-password" required>
+              <div class="flex">
+                <input type="button" value="Login" name="login-btn" id="login-btn">
+                <input type="button" value="Sign Up" name="sign-up-btn" id="sign-up-btn">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
     <noscript>
       <p>This page requires a JavaScript-enabled browser.</p>
     </noscript>
