@@ -84,6 +84,11 @@ body { background-color: var(--primary-bg-colour); }
   }
 }
 
+#errorMsg {
+  color: red;
+  text-align: center;
+}
+
 .in::first-letter { letter-spacing: 1px; }
 
 .login-main {

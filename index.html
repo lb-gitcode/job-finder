@@ -8,7 +8,7 @@
     <meta name="keywords" content="html, css, web, web development, javascript">
     <link rel="icon" href="./assets/media/favicon.png?v=2" type="image/x-icon">
     <link rel="stylesheet" href="./assets/style/index.css" media="all">
-    <script src="./assets/script/app.js" defer type="module"></script>
+    <script src="./assets/script/login.js" defer type="module"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +38,7 @@
             <form class="login-form">
               <input type="text" placeholder="Email or Phone" name="user-email-or-phone" id="user-email" required>
               <input type="text" placeholder="Password" name="user-password" id="user-password" required>
+              <p id="errorMsg"></p>
               <div class="flex">
                 <input type="button" value="Login" name="login-btn" id="login-btn">
                 <input type="button" value="Sign Up" name="sign-up-btn" id="sign-up-btn">

@@ -1,0 +1,36 @@
+'use strict';
+
+import { select, selectAll, getElement, listen, getCookie, setCookie } from "./utils.js";
+
+const login = getElement("login-btn");
+const usernameInput = getElement("user-email");
+const passwordInput = getElement("user-password");
+const error = getElement("errorMsg");
+let username = "NoviceProgrammer87@gmail.com";
+let password = "DontVibeCode01";
+let loggedIn = getCookie("loggedIn");
+if (loggedIn == null) {
+  loggedIn = false;
+} else {
+  loggedIn = true;
+  window.location.assign("home.html");
+}
+
+listen('click', login, function() {
+  if (usernameInput.value == "" && passwordInput.value == "") {
+    error.innerText = "Error: Please enter your Credentials or Sign Up!";
+  } else if (usernameInput.value == "") {
+    error.innerText = "Error: Please enter your Email or Phone!";
+  } else if (passwordInput.value == "") {
+    error.innerText = "Error: Please enter your Password!";
+  }else if (usernameInput.value == username && passwordInput.value == password) {
+    loggedIn = true;
+    setCookie("loggedIn", true, 86400);
+  } else {
+    error.innerText = "Error: One or more of your Credentials are incorrect!";
+  }
+
+  if (loggedIn == true) {
+    window.location.assign("home.html");
+  }
+})
