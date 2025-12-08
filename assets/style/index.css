@@ -204,6 +204,19 @@ header {
   }
 }
 
+.select-menu {
+  margin: 0 10px;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+}
+
 .searchbar {
   position: relative;
   i {
@@ -630,6 +643,20 @@ header {
   .searchbar i { top: 33px; }
 }
 
+@media (max-width: 650px) {
+  header nav {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+  .select-menu {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    display: block;
+  }
+}
+
 @media (max-width: 620px) {
   .poster-time {  
     opacity: 0;
@@ -651,7 +678,7 @@ header {
 }
 
 @media (max-width: 580px) {
-  .post-container { width: 38%; }
+  .post-container { width: 39%; }
   .user-info h3, .people-know h3 { font-size: 8px; }
 }
 
@@ -659,6 +686,11 @@ header {
   .main-feed { 
     margin: 20px auto 0px;
     width: calc(100% - 40px);
+  }
+  .poster-time {  
+    opacity: 1;
+    visibility: visible;
+    position: static;
   }
   .user-info, .people-know {
     margin: 0;
@@ -678,7 +710,12 @@ header {
     margin-bottom: 20px; 
     padding: 4px 4px 30px;
     h3 { font-size: 14px; }
+    #person-icon {  
+      height: 50px;
+      min-width: 50px;
+    }
   }
+  .person-know { margin: 14px 0; }
   #person-state {
     visibility: visible;
     opacity: 1;
@@ -717,6 +754,14 @@ header {
   #person-state {
     visibility: hidden;
     opacity: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 320px) {
+  .poster-time {  
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
   }
 }
