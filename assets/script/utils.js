@@ -1,33 +1,47 @@
 'use strict';
 
 //functions grabbed from notes.
-function setCookie(name, value, maxAge) {
+export function setCookie(name, value, maxAge) {
   const options = {
     path: '/',
     SameSite: 'Lax'
   };
-
   if (maxAge) {
     options.maxAge = maxAge;
   }
-
-  let cookieString = `encodeURIComponent(${name})=encodeURIComponent(${value})`;
+  let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
   for (let option in options) {
     cookieString += `; ${option}=${options[option]}`;
   }
-
   document.cookie = cookieString;
 }
 
-function getCookie(name) {
-  const cookies = document.cookies.split(';');
-  for (let cookie in cookies) {
-    const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
-    
-    if (decodeURIComponent(cookieName) === name) { 
-      console.log(decodeURIComponent(cookieValue));
+export function getCookie(name) {
+  if (document.cookie != null) {
+    const cookies = document.cookie;
+    let test = false;
+    for (let i in cookies) {
+      if (i == ";") {
+        test = true;
+        break;
+      }
+    }
+    if (test == true) {
+      cookies = cookies.split(';');
+      for (let cookie in cookies) {
+        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
+        if (decodeURIComponent(cookieName) === name) { 
+          return decodeURIComponent(cookieValue);
+        }
+      }
+    } else {
+      const [cookieName, cookieValue] = cookies.split('=').map(c => c.trim());
+      if (decodeURIComponent(cookieName) === name) { 
+        return decodeURIComponent(cookieValue);
+      }
     }
   }
+  return null;
 }
 
 export function getElement(selector, scope = document) { return scope.getElementById(selector); }
