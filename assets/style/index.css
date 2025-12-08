@@ -18,6 +18,7 @@
 }
 
 * { 
+  color: var(--primary-text-colour);
   font-family: 'Open Sans', sans-serif;
   transition: all 0.2s ease-in-out; 
 }
@@ -107,10 +108,7 @@ body { background-color: var(--primary-bg-colour); }
   padding: 12px;
   justify-content: center;
   flex-direction: column;
-  h3 { 
-    color: var(--primary-text-colour);
-    font-size: 32px; 
-  }
+  h3 { font-size: 32px; }
 }
 
 .blue-text { color: var(--primary-accent-colour); }
@@ -196,10 +194,7 @@ header {
     border-color: gray;
     box-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
-  a { 
-    color: var(--primary-text-colour);
-    text-decoration: none; 
-  }
+  a { text-decoration: none; }
   a:hover { color: var(--primary-accent-colour); }
   a:active { color: var(--primary-accent-hover-colour); }
   nav {
@@ -260,7 +255,7 @@ header {
   position: relative;
   textarea {
     field-sizing: content;
-    padding: 4px;
+    padding: 8px 10px;
     width: 100%;
     margin-bottom: 45px;
     resize: none;
@@ -367,19 +362,16 @@ header {
   border: 1px solid var(--primary-border-colour);
 }
 
-.info-text {
-  text-align: center;
-  color: var(--primary-text-colour);
-}
+.info-text { text-align: center; }
 
 .user-stats {
-  height: 100%;
+  height: calc(50% - 20px);
   margin-top: 20px;
   padding: 20px;
   display: flex;
   justify-content: center;
   div {
-    margin: 10px;
+    margin: auto;
     text-align: center;
   }
   div + div { margin-left: 30px; }
@@ -388,7 +380,6 @@ header {
 #stat-num {
   font-weight: 700;
   font-size: 30px;
-  color: var(--primary-text-colour)
 }
 
 #stat-label {
@@ -400,6 +391,38 @@ header {
   margin-left: auto;
   padding: 20px;
   h3 { margin: 0 80px 20px 0; }
+}
+
+.user-premium {
+  padding: 20px;
+  margin-top: 20px;
+  height: calc(50% - 20px);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  div { 
+    margin: auto; 
+    h4 { font-size: 16px; }
+    h5 { 
+      color: var(--secondary-text-colour);
+      margin: 6px 0;
+      font-size: 12px; 
+    }
+    input[type=button] {
+      box-shadow: 1px 1px 2px var(--primary-shadow-colour);
+      background-color: var(--tertiary-accent-colour);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    input[type=button]:hover { 
+      background-color: var(--tertiary-accent-hover-colour);
+      color: var(--primary-text-colour);
+    }
+    input[type=button]:active {
+      background-color: var(--secondary-shadow-colour);
+      color: var(--primary-bg-colour);
+    }
+  }
 }
 
 #people-container { height: 40px; }
@@ -427,6 +450,14 @@ header {
     height: 660px;
     p { font-size: 14px; }
     h3 { font-size: 16px; }
+  }
+  .user-premium div {
+    h4 { font-size: 12px; }
+    h5 { font-size: 10px; }
+    input[type=button] {
+      margin-top: 4px;
+      font-size: 14px;
+    }
   }
   .people-know { 
     padding: 15px;
@@ -481,7 +512,12 @@ header {
   .user-info, .people-know {
     height: 520px;
   }
-  .user-stats div { margin: auto; }
+  .user-stats { height: 100%; }
+  .user-premium {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
   .searchbar i { left: 40px; }
   .person-know { margin: 4px; }
   #person-country {
