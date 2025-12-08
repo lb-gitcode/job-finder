@@ -25,7 +25,7 @@ listen('click', login, function() {
     error.innerText = "Error: Please enter your Password!";
   }else if (usernameInput.value == username && passwordInput.value == password) {
     loggedIn = true;
-    setCookie("loggedIn", true, 3600000);
+    setCookie("loggedIn", true, 86400);
   } else {
     error.innerText = "Error: One or more of your Credentials are incorrect!";
   }
