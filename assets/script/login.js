@@ -2,19 +2,14 @@
 
 import { select, selectAll, getElement, listen, getCookie, setCookie } from "./utils.js";
 
+let username = "NoviceProgrammer87@gmail.com";
+let password = "DontVibeCode01";
+let loggedIn = false;
+
 const login = getElement("login-btn");
 const usernameInput = getElement("user-email");
 const passwordInput = getElement("user-password");
 const error = getElement("errorMsg");
-let username = "NoviceProgrammer87@gmail.com";
-let password = "DontVibeCode01";
-let loggedIn = getCookie("loggedIn");
-if (loggedIn == null) {
-  loggedIn = false;
-} else {
-  loggedIn = true;
-  window.location.assign("home.html");
-}
 
 listen('click', login, function() {
   if (usernameInput.value == "" && passwordInput.value == "") {
@@ -25,12 +20,8 @@ listen('click', login, function() {
     error.innerText = "Error: Please enter your Password!";
   }else if (usernameInput.value == username && passwordInput.value == password) {
     loggedIn = true;
-    setCookie("loggedIn", true, 3600000);
+    setCookie("loggedIn", true, none);
   } else {
     error.innerText = "Error: One or more of your Credentials are incorrect!";
-  }
-
-  if (loggedIn == true) {
-    window.location.assign("home.html");
   }
 })
