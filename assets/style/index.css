@@ -38,9 +38,33 @@ body { background-color: var(--primary-bg-colour); }
 .login-banner {
   width: 35%;
   height: 100svh;
+  position: relative;
   justify-content: center;
-  background-color: var(--secondary-accent-colour);
+  flex-wrap: wrap;
   box-shadow: 1px 0 2px var(--primary-shadow-colour);
+  background-color: var(--secondary-accent-colour);
+  background-image: url("https://images.unsplash.com/photo-1617321248535-bcfdd5253295?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  div i {  
+    position: absolute;
+    bottom: 60px;
+    right: 46%;
+    font-size: 38px;
+    color: var(--primary-accent-colour);
+  }
+}
+
+.login-banner-text { z-index: 3; }
+
+.login-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100svh;
+  background-image: linear-gradient(45deg, var(--primary-bg-colour), var(--secondary-accent-colour));
+  z-index: 1;
+  opacity: 67%;
 }
 
 .login-logo {
@@ -68,6 +92,7 @@ body { background-color: var(--primary-bg-colour); }
   width: 100%;
   display: grid;
   place-items: center;
+  z-index: 2;
 }
 
 .login-container {
@@ -128,10 +153,13 @@ body { background-color: var(--primary-bg-colour); }
 
 #sign-up-btn {
   background-color: var(--tertiary-accent-colour);
-  color: var(--primary-text-colour);
+  color: var(--secondary-text-colour);
 }
 
-#sign-up-btn:hover { background-color: var(--tertiary-accent-hover-colour); }
+#sign-up-btn:hover { 
+  background-color: var(--tertiary-accent-hover-colour);
+  color: var(--primary-text-colour);
+}
 
 #sign-up-btn:active {
   background-color: var(--secondary-shadow-colour);
