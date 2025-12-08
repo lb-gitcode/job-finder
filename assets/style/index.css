@@ -3,7 +3,7 @@
 /* Basic Formatting */
 
 :root {
-  --primary-bg-colour: rgb(238, 238, 238);
+  --primary-bg-colour: rgb(230, 233, 236);
   --secondary-bg-colour: rgb(254, 254, 255);
   --primary-border-colour: rgb(209, 209, 209);
   --primary-shadow-colour: rgba(211, 211, 211, 0.5);
@@ -326,9 +326,7 @@ header {
 .user-info, .people-know {
   top: 30px;
   position: sticky;
-  overflow: visible;
   margin: 30px;
-  padding: 20px;
   height: 670px;
   width: 25%;
   h3 {
@@ -336,15 +334,66 @@ header {
     font-size: 18px;
     text-align: center;
   }
+  p { font-size: 16px; }
 }
 
-.user-info .user-icon { 
-  height: 50px;
-  width: 50px;
+.user-content {
+  padding: 20px;
+}
+
+.user-pronouns {
+  color: var(--secondary-text-colour);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.user-info {  
+  display: flex;
+  flex-direction: column;
+  p { margin-bottom: 6px; }
+}
+
+.info-icon { 
+  background-color: var(--primary-accent-colour);
+  height: 110px;
+  width: 110px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 1px solid var(--primary-border-colour);
+}
+
+.info-text {
+  text-align: center;
+  color: var(--primary-text-colour);
+}
+
+.user-stats {
+  height: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  div {
+    margin: 10px;
+    text-align: center;
+  }
+  div + div { margin-left: 30px; }
+}
+
+#stat-num {
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--primary-text-colour)
+}
+
+#stat-label {
+  font-size: 14px;
+  color: var(--secondary-text-colour);
 }
 
 .people-know {
   margin-left: auto;
+  padding: 20px;
   h3 { margin: 0 80px 20px 0; }
 }
 
@@ -363,14 +412,21 @@ header {
 
 /* Media Queries */
 
+@media (max-width: 1320px) { 
+  .user-info h3, .people-know h3 { font-size: 17px; }
+}
+
 @media (max-width: 1280px) {
   header nav { margin: 0px 30px; }
   .user-info, .people-know { 
     height: 660px;
-    padding: 15px;
+    p { font-size: 14px; }
     h3 { font-size: 16px; }
   }
-  .people-know h3 { margin-right: 50px; }
+  .people-know { 
+    padding: 15px;
+    h3 { margin-right: 50px; }
+  }
   .person-know { justify-content: space-evenly; }
   #person-name { margin-left: 6px; }
   #person-state {
@@ -383,10 +439,13 @@ header {
 @media (max-width: 1060px) {
   .user-info, .people-know { 
     height: 650px;
-    padding: 10px;
+    p { font-size: 12px; }
     h3 { font-size: 14px; }
   }
-  .people-know h3 { margin-right: 30px; }
+  .people-know {
+    padding: 10px;
+    h3 { margin-right: 30px; }
+  }
 }
 
 @media (max-width: 920px) {
@@ -417,6 +476,7 @@ header {
   .user-info, .people-know {
     height: 520px;
   }
+  .user-stats div { margin: auto; }
   .searchbar i { left: 40px; }
   .person-know { margin: 4px; }
   #person-country {
@@ -447,6 +507,7 @@ header {
     width: 24%;
     top: 25px;
     margin-top: 25px; 
+    p { font-size: 10px; }
     h3 { 
       font-weight: 500;
       margin-top: 8px; 
@@ -496,5 +557,4 @@ header {
       font-size: 8px;
     }
   }
-
 }
