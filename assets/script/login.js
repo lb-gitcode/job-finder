@@ -2,26 +2,35 @@
 
 import { select, selectAll, getElement, listen, getCookie, setCookie } from "./utils.js";
 
-let username = "NoviceProgrammer87@gmail.com";
-let password = "DontVibeCode01";
-let loggedIn = false;
-
 const login = getElement("login-btn");
 const usernameInput = getElement("user-email");
 const passwordInput = getElement("user-password");
 const error = getElement("errorMsg");
+let username = "NoviceProgrammer87@gmail.com";
+let password = "DontVibeCode01";
+let loggedIn = getCookie("loggedIn");
+if (loggedIn == null) {
+  loggedIn = false;
+} else {
+  loggedIn = true;
+  window.location.assign("home.html");
+}
 
 listen('click', login, function() {
-  if (usernameInput.innerText == "" && passwordInput.innerText == "") {
+  if (usernameInput.value == "" && passwordInput.value == "") {
     error.innerText = "Error: Please enter your Credentials or Sign Up!";
-  } else if (usernameInput.innerText == "") {
+  } else if (usernameInput.value == "") {
     error.innerText = "Error: Please enter your Email or Phone!";
-  } else if (passwordInput.innerText == "") {
+  } else if (passwordInput.value == "") {
     error.innerText = "Error: Please enter your Password!";
-  }else if (usernameInput.innerText == username && passwordInput.innerText == password) {
+  }else if (usernameInput.value == username && passwordInput.value == password) {
     loggedIn = true;
-    setCookie("loggedIn", true, none);
+    setCookie("loggedIn", true, 3600000);
   } else {
     error.innerText = "Error: One or more of your Credentials are incorrect!";
+  }
+
+  if (loggedIn == true) {
+    window.location.assign("home.html");
   }
 })
