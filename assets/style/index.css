@@ -191,6 +191,7 @@ header {
     border-radius: 20px;
   }
   input[type=text]:focus {
+    width: 240px;
     border-color: gray;
     box-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
@@ -266,6 +267,7 @@ header {
 .post-maker {
   justify-content: center;
   position: relative;
+  padding: 20px;
   textarea {
     field-sizing: content;
     padding: 8px 10px;
@@ -312,10 +314,9 @@ header {
   width: 40%;
 }
 
-.post, .post-maker {
-  margin-bottom: 20px;
-  padding: 20px;
-}
+.post { padding: 25px; }
+
+.post, .post-maker { margin-bottom: 20px; }
 
 .poster-info {
   height: 40px;
@@ -555,6 +556,7 @@ header {
 
 @media (max-width: 850px) {
   .post-maker textarea, .post p { font-size: 12px; }
+  .post { padding: 20px; }
   .info-icon {
     max-height: 85px;
     max-width: 85px;
@@ -687,6 +689,7 @@ header {
     margin: 20px auto 0px;
     width: calc(100% - 40px);
   }
+  .post { padding: 25px; }
   .poster-time {  
     opacity: 1;
     visibility: visible;
@@ -750,7 +753,32 @@ header {
   #stat-label { font-size: 11px; }
 }
 
+@media (max-width: 400px) {
+  header .user-icon {  
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
 @media (max-width: 375px) {
+  .searchbar {
+    margin-left: -10px;
+    i { 
+      top: 37px;
+      font-size: 12px;
+    }
+    input[type=text] { 
+      font-size: 9px;
+      height: 30px;
+      width: 90px; 
+      padding-left: 30px;
+    }
+  }
+  .select-menu { 
+    line-height: 85px;
+    font-size: 9px; 
+  }
   #person-state {
     visibility: hidden;
     opacity: 0;
@@ -759,6 +787,23 @@ header {
 }
 
 @media (max-width: 320px) {
+  .icon {
+    margin-top: 6px;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 12px;
+    a { padding-top: 2px; }
+    i { font-size: 18px; }
+  }
+  .searchbar {
+    i { left: 28px; }
+    input[type=text] { 
+      font-size: 8px;
+      padding-left: 28px;
+      margin-left: 20px;
+      width: 70px; 
+    }
+  }
   .poster-time {  
     opacity: 0;
     visibility: hidden;
@@ -767,11 +812,52 @@ header {
 }
 
 @media (max-width: 290px) {
+  .post { padding: 20px; }
+  .icon {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+  .searchbar {
+    i { 
+      top: 37px;
+      font-size: 12px;
+      left: 16px; 
+    }
+    input[type=text] { 
+      padding-left: 24px;
+      margin-left: 10px; 
+    }
+  }
   #stat-num { font-size: 21px; }
   #stat-label { font-size: 10px; }
   #person-country {
     visibility: hidden;
     opacity: 0;
     position: absolute;
+  }
+}
+
+@media (max-width: 250px) {
+  .searchbar {
+    i { 
+      visibility: hidden;
+      opacity: 0;
+    }
+    input[type=text] {
+      width: 50px; 
+      font-size: 7px;
+      padding-left: 10px;
+    }
+  }
+  .select-menu { font-size: 7px; }
+  #stat-num { font-size: 19px; }
+  #stat-label { font-size: 9px; }
+  .people-know {
+    margin-bottom: 15px;
+    #person-icon {  
+      height: 45px;
+      min-width: 45px;
+    }
   }
 }
