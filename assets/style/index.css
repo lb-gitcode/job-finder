@@ -564,6 +564,13 @@ header {
 }
 
 @media (max-width: 850px) {
+  /* Index */
+  .login-overlay, .login-banner {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* Home */
   .post-maker textarea, .post p { font-size: 12px; }
   .post { padding: 20px; }
   .info-icon {
@@ -625,6 +632,12 @@ header {
 }
 
 @media (max-width: 720px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 28px; }
+    .job-text { font-size: 16px; }
+  }
+  /* Home */
   header {
     nav {
       margin: 0px 20px;
@@ -669,6 +682,12 @@ header {
 }
 
 @media (max-width: 620px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 26px; }
+    .job-text { font-size: 15px; }
+  }
+  /* Home */
   .poster-time {  
     opacity: 0;
     visibility: hidden;
@@ -694,11 +713,36 @@ header {
 }
 
 @media (max-width: 525px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 24px; }
+    .job-text { 
+      margin: 32px 0;
+      font-size: 14px; 
+    }
+  }
+  .login-form {
+    input[type=text] {
+      font-size: 12px;
+      height: 45px;
+    }
+    input[type=button] {
+      font-size: 12px;
+      margin: 8px;
+      padding: 10px 14px;
+      border-radius: 7px;
+    }
+  }
+  /* Home */
   .main-feed { 
     margin: 20px auto 0px;
     width: calc(100% - 40px);
   }
-  .post { padding: 25px; }
+  .post { 
+    padding: 25px; 
+    p { font-size: 14px; }
+  }
+  .post-maker textarea { font-size: 14px; }
   .poster-time {  
     opacity: 1;
     visibility: visible;
@@ -762,6 +806,26 @@ header {
   #stat-label { font-size: 11px; }
 }
 
+@media (max-width: 480px) {
+  .login-container {
+    h3 { font-size: 20px; }
+    .job-text { 
+      margin: 28px 0;
+      font-size: 11px; 
+    }
+  }
+  .login-form {
+    input[type=text] {
+      font-size: 10px;
+      height: 45px;
+    }
+    input[type=button] {
+      font-size: 10px;
+      padding: 9px 13px;
+    }
+  }
+}
+
 @media (max-width: 400px) {
   header .user-icon {  
     opacity: 0;
@@ -796,6 +860,25 @@ header {
 }
 
 @media (max-width: 320px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 18px; }
+    .job-text { 
+      margin: 28px 0;
+      font-size: 9px; 
+    }
+  }
+  .login-form {
+    input[type=text] {
+      font-size: 8px;
+      height: 30px;
+    }
+    input[type=button] {
+      font-size: 8px;
+      padding: 7px 10px;
+    }
+  }
+  /* Home */
   .icon {
     margin-top: 6px;
     height: 35px;
