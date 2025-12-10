@@ -475,3 +475,14 @@ header {
   }
 
 }
+
+/*I added this to get the image upload to work*/
+::file-selector-button {
+  display: none;
+}
+
+.target {
+  position: relative;
+  font-size: 15px;
+  bottom: 3px;
+}

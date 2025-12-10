@@ -16,6 +16,19 @@ export function setCookie(name, value, maxAge) {
   document.cookie = cookieString;
 }
 
+export function publish(text, image, time, publisher, feed) {
+  if (image == "" && text == "") {
+    
+  } else if (image == "") {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><p>${text}</p></div>`;
+    
+  } else if (text == "") {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><img class="chatImg" src=${image}></div>`;
+  } else {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><p>${text}</p><img class="chatImg" src=${image}></div>`;
+  }
+}
+
 export function getCookie(name) {
   if (document.cookie != null) {
     const cookies = document.cookie;
