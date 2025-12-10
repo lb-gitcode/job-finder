@@ -54,6 +54,31 @@ export function getCookie(name) {
   return null;
 }
 
+export async function getUsers(endpoint) {
+  let data = null;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/JSON; charset=UTF-8'
+    },
+    mode: 'cors'  
+  }
+  try {
+    const result = await fetch(endpoint, options);
+    if(!result.ok) {
+        throw new error(`${result.status}: ${result.statusText}`)
+    }
+
+    data = await result.json();
+    console.log(data.results);
+    
+
+  } catch(error) {
+    console.log(error.message);
+  }
+  return data.results;
+}
+
 export function getElement(selector, scope = document) { return scope.getElementById(selector); }
 
 export function select(selector, scope = document) { return scope.querySelector(selector); }

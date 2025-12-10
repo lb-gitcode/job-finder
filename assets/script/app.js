@@ -1,6 +1,6 @@
 'use strict';
 
-import { select, getElement, listen, publish} from "./utils.js";
+import { select, getElement, listen, publish, getUsers} from "./utils.js";
 
 class User {
   #name = "";
@@ -54,3 +54,24 @@ listen('click', send, function() {
   publish(inputText.value, inputImg, time, name, feed);
   inputText.value = "";
 })
+
+const users = getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
+console.log(users);
+/*
+let icon = getElement("person-icon");
+let name = getElement("person-name");
+let state = getElement("person-state");
+let country = getElement("person-country");
+for (let i = 1; i < users.length + 1; i++) {
+  let j = String(i);
+  icon = getElement(`person-icon ${j}`);
+  name = getElement(`person-name ${j}`);
+  state = getElement(`person-state ${j}`);
+  country = getElement(`person-country ${j}`);
+
+  icon.value =
+  name.value = String(users[i].name.first + " " + users[i].name.last);
+  state.value =
+  country.value = users[i].nat;
+}
+*/
