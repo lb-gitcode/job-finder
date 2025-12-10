@@ -13,17 +13,14 @@ class User {
     this.#email = email;
     this.#id = id;
   }
-
   getUserName() {
     return this.#userName;
   }
-
   getInfo() {
     let info = Array(this.#name, this.#userName, this.#email, this.#id);
     return info;
   }
 }
-
 class Subscriber extends User {
   #groups = [];
   #pages = [];
@@ -40,7 +37,10 @@ const feed = getElement("post-feed");
 const send = getElement("post-btn");
 const inputText = getElement("new-post-text");
 const target = select(".target");
-const user = new Subscriber("Rone Kohut", "RoninTheDev", "Gamewarrior1andbowser@gmail.com", "RoninTheDev", ['Kirby', 'Programming', 'game development'], ['Siege of Popstar'], false);
+const username = select(".username");
+const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "000001", ['Programming', 'Kirby', 'Game development'], ['Siege of Popstar'], false);
+
+username.innerText = user.getUserName();
 
 listen('click', send, function() {
   let inputImg = "";
