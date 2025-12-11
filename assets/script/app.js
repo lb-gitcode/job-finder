@@ -55,23 +55,24 @@ listen('click', send, function() {
   inputText.value = "";
 })
 
-const users = getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
+let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
+
 console.log(users);
 /*
-let icon = getElement("person-icon");
-let name = getElement("person-name");
-let state = getElement("person-state");
-let country = getElement("person-country");
-for (let i = 1; i < users.length + 1; i++) {
+let icon = null;
+let name = null;
+let state = null;
+let country = null;
+for (let i = 0; i < users.length; i++) {
   let j = String(i);
-  icon = getElement(`person-icon ${j}`);
-  name = getElement(`person-name ${j}`);
-  state = getElement(`person-state ${j}`);
-  country = getElement(`person-country ${j}`);
+  icon = select(`.icon ${j}`);
+  name = select(`.name ${j}`);
+  state = select(`.state ${j}`);
+  country = select(`.country ${j}`);
 
-  icon.value =
-  name.value = String(users[i].name.first + " " + users[i].name.last);
-  state.value =
+  icon.value = users[i].picture.thumbnail;
+  name.value = `${users[i].name.first} ${users[i].name.last}`;
+  state.value = users[i].location.state;
   country.value = users[i].nat;
 }
 */
