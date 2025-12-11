@@ -412,6 +412,7 @@ header {
 
 .people-know {
   margin-left: auto;
+  text-align: left;
   padding: 20px;
   h3 { margin: 0 80px 20px 0; }
 }
@@ -453,7 +454,9 @@ header {
 .person-know {
   line-height: 48px; 
   justify-content: space-between;
+  gap: 10px;
   margin: 18px; 
+  p { font-size: 12px; }
 }
 
 #person-name { 
