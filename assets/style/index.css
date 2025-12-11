@@ -456,6 +456,7 @@ header {
   justify-content: space-between;
   gap: 10px;
   margin: 18px; 
+  overflow-x: hidden;
   p { font-size: 12px; }
 }
 
@@ -478,6 +479,18 @@ header {
 
 /* Media Queries */
 
+@media (max-width: 1700px) {
+  .person-know p { font-size: 11px; }
+}
+
+@media (max-width: 1630px) {
+  #person-state {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+}
+
 @media (max-width: 1320px) { 
   .user-info h3, .people-know h3 { font-size: 17px; }
 }
@@ -486,9 +499,10 @@ header {
   header nav { margin: 0px 30px; }
   .user-info, .people-know { 
     height: 660px;
-    p { font-size: 14px; }
     h3 { font-size: 16px; }
   }
+  .user-info p { font-size: 14px; }
+  .person-know p { font-size: 10px; }
   .user-premium div {
     h4 { font-size: 12px; }
     h5 { font-size: 10px; }
@@ -498,28 +512,31 @@ header {
     }
   }
   .people-know { 
-    padding: 15px;
+    padding: 10px;
     h3 { margin-right: 50px; }
   }
-  .person-know { justify-content: space-evenly; }
+  .person-know { gap: 9px; }
   #person-name { margin-left: 6px; }
-  #person-state {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-  }
 }
 
 @media (max-width: 1060px) {
   .user-info, .people-know { 
     height: 650px;
-    p { font-size: 12px; }
     h3 { font-size: 14px; }
     .user-pronouns { font-size: 12px; }
   }
+  .user-info p { font-size: 12px; }
   .people-know {
     padding: 10px;
     h3 { margin-right: 30px; }
+  }
+}
+
+@media (max-width: 1010px) {
+  #person-country {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
   }
 }
 
@@ -536,9 +553,15 @@ header {
     }
   }
   .post-maker textarea, .post p { font-size: 14px; }
-  .icon, .user-icon, #person-icon {
+  .icon, .user-icon {
     height: 40px;
     min-width: 40px;
+  }
+  #person-icon {  
+    min-height: 35px;
+    min-width: 35px;
+    max-width: 35px;
+    max-height: 35px;
   }
   .user-info .user-icon { 
     height: 40px;
@@ -571,11 +594,6 @@ header {
   }
   .searchbar i { left: 40px; }
   .person-know { margin: 4px; }
-  #person-country {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-  }
 }
 
 @media (max-width: 850px) {
@@ -635,6 +653,16 @@ header {
   .poster-name { font-size: 14px; }
   .poster-time { font-size: 14px; }
   .searchbar i { left: 35px; }
+
+  @media (max-width: 760px) {
+    .person-know p { font-size: 9px; }
+    #person-icon {  
+      min-height: 32px;
+      min-width: 32px;
+      max-width: 32px;
+      max-height: 32px;
+    }
+  }
 }
 
 @media (max-width: 740px) {
