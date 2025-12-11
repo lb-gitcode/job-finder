@@ -51,6 +51,7 @@ listen('click', send, function() {
   let name = user.getUserName();
   publish(inputText.value, inputImg, time, name, feed);
   inputText.value = "";
+  inputImg = "";
 })
 
 let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10");
