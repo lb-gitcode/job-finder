@@ -331,6 +331,7 @@ header {
   margin-right: auto;
   justify-self: center;
   width: 40%;
+  overflow-x: hidden;
 }
 
 .post { padding: 25px; }
