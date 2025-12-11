@@ -253,6 +253,11 @@ header {
 
 .user-icon, #person-icon { border-radius: 50%; }
 
+.user-icon, .info-icon {
+  background-image: url("../media/user.jpg");
+  background-size: 100%;
+}
+
 /* Main Feed */
 
 .main-feed, .post-container { overflow-y: auto; }
