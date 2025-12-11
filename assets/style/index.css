@@ -461,6 +461,10 @@ header {
   margin-left: 12px; 
 }
 
+.userImg {
+  border-radius: 50%;
+}
+
 /* Media Queries */
 
 @media (max-width: 1320px) { 

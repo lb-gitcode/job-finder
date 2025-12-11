@@ -70,7 +70,7 @@ for (let i = 0; i < users.length; i++) {
   state = select(`.state-${nums[i]}`);
   country = select(`.country-${nums[i]}`);
 
-  //icon = users[i].picture.thumbnail;
+  icon.innerHTML += `<img class="userImg" src=${users[i].picture.thumbnail}>`;
   name.innerText = `${users[i].name.first} ${users[i].name.last}`;
   state.innerText = users[i].location.state;
   country.innerText = users[i].nat;
