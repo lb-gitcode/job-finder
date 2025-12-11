@@ -3,7 +3,7 @@
 /* Basic Formatting */
 
 :root {
-  --primary-bg-colour: rgb(238, 238, 238);
+  --primary-bg-colour: rgb(230, 233, 236);
   --secondary-bg-colour: rgb(254, 254, 255);
   --primary-border-colour: rgb(209, 209, 209);
   --primary-shadow-colour: rgba(211, 211, 211, 0.5);
@@ -18,6 +18,7 @@
 }
 
 * { 
+  color: var(--primary-text-colour);
   font-family: 'Open Sans', sans-serif;
   transition: all 0.2s ease-in-out; 
 }
@@ -38,9 +39,33 @@ body { background-color: var(--primary-bg-colour); }
 .login-banner {
   width: 35%;
   height: 100svh;
+  position: relative;
   justify-content: center;
-  background-color: var(--secondary-accent-colour);
+  flex-wrap: wrap;
   box-shadow: 1px 0 2px var(--primary-shadow-colour);
+  background-color: var(--secondary-accent-colour);
+  background-image: url("https://images.unsplash.com/photo-1617321248535-bcfdd5253295?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  div i {  
+    position: absolute;
+    bottom: 60px;
+    right: 46%;
+    font-size: 38px;
+    color: var(--primary-accent-colour);
+  }
+}
+
+.login-banner-text { z-index: 3; }
+
+.login-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100svh;
+  background-image: linear-gradient(45deg, var(--primary-bg-colour), var(--secondary-accent-colour));
+  z-index: 1;
+  opacity: 67%;
 }
 
 .login-logo {
@@ -73,6 +98,7 @@ body { background-color: var(--primary-bg-colour); }
   width: 100%;
   display: grid;
   place-items: center;
+  z-index: 2;
 }
 
 .login-container {
@@ -82,10 +108,7 @@ body { background-color: var(--primary-bg-colour); }
   padding: 12px;
   justify-content: center;
   flex-direction: column;
-  h3 { 
-    color: var(--primary-text-colour);
-    font-size: 32px; 
-  }
+  h3 { font-size: 32px; }
 }
 
 .blue-text { color: var(--primary-accent-colour); }
@@ -133,10 +156,13 @@ body { background-color: var(--primary-bg-colour); }
 
 #sign-up-btn {
   background-color: var(--tertiary-accent-colour);
-  color: var(--primary-text-colour);
+  color: var(--secondary-text-colour);
 }
 
-#sign-up-btn:hover { background-color: var(--tertiary-accent-hover-colour); }
+#sign-up-btn:hover { 
+  background-color: var(--tertiary-accent-hover-colour);
+  color: var(--primary-text-colour);
+}
 
 #sign-up-btn:active {
   background-color: var(--secondary-shadow-colour);
@@ -165,13 +191,11 @@ header {
     border-radius: 20px;
   }
   input[type=text]:focus {
+    width: 240px;
     border-color: gray;
     box-shadow: 0 0 2px var(--secondary-shadow-colour);
   }
-  a { 
-    color: var(--primary-text-colour);
-    text-decoration: none; 
-  }
+  a { text-decoration: none; }
   a:hover { color: var(--primary-accent-colour); }
   a:active { color: var(--primary-accent-hover-colour); }
   nav {
@@ -179,6 +203,19 @@ header {
     gap: 30px;
     display: flex;
   }
+}
+
+.select-menu {
+  margin: 0 10px;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
 }
 
 .searchbar {
@@ -230,9 +267,10 @@ header {
 .post-maker {
   justify-content: center;
   position: relative;
+  padding: 20px;
   textarea {
     field-sizing: content;
-    padding: 4px;
+    padding: 8px 10px;
     width: 100%;
     margin-bottom: 45px;
     resize: none;
@@ -259,11 +297,20 @@ header {
   cursor: pointer;
   font-size: 24px;
   color: var(--secondary-text-colour);
+  display: flex;
+  p {  
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    margin-left: 4px;
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
-#new-post-file:hover, #person-name:hover { color: var(--primary-accent-colour); }
+#new-post-file i:hover, #person-name:hover, .poster-name:hover { color: var(--primary-accent-colour); }
 
-#new-post-file:active, #person-name:active { color: var(--primary-accent-hover-colour); }
+#new-post-file i:active, #person-name:active, .poster-name:active { color: var(--primary-accent-hover-colour); }
 
 .post-container {
   position: absolute;
@@ -276,10 +323,9 @@ header {
   width: 40%;
 }
 
-.post, .post-maker {
-  margin-bottom: 20px;
-  padding: 20px;
-}
+.post { padding: 25px; }
+
+.post, .post-maker { margin-bottom: 20px; }
 
 .poster-info {
   height: 40px;
@@ -303,9 +349,7 @@ header {
 .user-info, .people-know {
   top: 30px;
   position: sticky;
-  overflow: visible;
   margin: 30px;
-  padding: 20px;
   height: 670px;
   width: 25%;
   h3 {
@@ -313,16 +357,95 @@ header {
     font-size: 18px;
     text-align: center;
   }
+  p { font-size: 16px; }
 }
 
-.user-info .user-icon { 
-  height: 50px;
-  width: 50px;
+.user-content {
+  padding: 20px;
+}
+
+.user-pronouns {
+  color: var(--secondary-text-colour);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.user-info {  
+  display: flex;
+  flex-direction: column;
+  p { margin-bottom: 6px; }
+}
+
+.info-icon { 
+  background-color: var(--primary-accent-colour);
+  height: 110px;
+  width: 110px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 1px solid var(--primary-border-colour);
+}
+
+.info-text { text-align: center; }
+
+.user-stats {
+  height: calc(50% - 20px);
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  div {
+    margin: auto;
+    text-align: center;
+  }
+  div + div { margin-left: 30px; }
+}
+
+#stat-num {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#stat-label {
+  font-size: 14px;
+  color: var(--secondary-text-colour);
 }
 
 .people-know {
   margin-left: auto;
+  padding: 20px;
   h3 { margin: 0 80px 20px 0; }
+}
+
+.user-premium {
+  padding: 20px;
+  margin-top: 20px;
+  height: calc(50% - 20px);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  div { 
+    margin: auto; 
+    h4 { font-size: 16px; }
+    h5 { 
+      color: var(--secondary-text-colour);
+      margin: 6px 0;
+      font-size: 12px; 
+    }
+    input[type=button] {
+      box-shadow: 1px 1px 2px var(--primary-shadow-colour);
+      background-color: var(--tertiary-accent-colour);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    input[type=button]:hover { 
+      background-color: var(--tertiary-accent-hover-colour);
+      color: var(--primary-text-colour);
+    }
+    input[type=button]:active {
+      background-color: var(--secondary-shadow-colour);
+      color: var(--primary-bg-colour);
+    }
+  }
 }
 
 #people-container { height: 40px; }
@@ -340,14 +463,29 @@ header {
 
 /* Media Queries */
 
+@media (max-width: 1320px) { 
+  .user-info h3, .people-know h3 { font-size: 17px; }
+}
+
 @media (max-width: 1280px) {
   header nav { margin: 0px 30px; }
   .user-info, .people-know { 
     height: 660px;
-    padding: 15px;
+    p { font-size: 14px; }
     h3 { font-size: 16px; }
   }
-  .people-know h3 { margin-right: 50px; }
+  .user-premium div {
+    h4 { font-size: 12px; }
+    h5 { font-size: 10px; }
+    input[type=button] {
+      margin-top: 4px;
+      font-size: 14px;
+    }
+  }
+  .people-know { 
+    padding: 15px;
+    h3 { margin-right: 50px; }
+  }
   .person-know { justify-content: space-evenly; }
   #person-name { margin-left: 6px; }
   #person-state {
@@ -360,10 +498,14 @@ header {
 @media (max-width: 1060px) {
   .user-info, .people-know { 
     height: 650px;
-    padding: 10px;
+    p { font-size: 12px; }
     h3 { font-size: 14px; }
+    .user-pronouns { font-size: 12px; }
   }
-  .people-know h3 { margin-right: 30px; }
+  .people-know {
+    padding: 10px;
+    h3 { margin-right: 30px; }
+  }
 }
 
 @media (max-width: 920px) {
@@ -378,6 +520,7 @@ header {
       width: 160px;
     }
   }
+  .post-maker textarea, .post p { font-size: 14px; }
   .icon, .user-icon, #person-icon {
     height: 40px;
     min-width: 40px;
@@ -391,8 +534,25 @@ header {
     a { padding-top: 7px; }
     i { font-size: 22px; }
   }
-  .user-info, .people-know {
-    height: 520px;
+  .info-icon { 
+    margin: auto;
+    max-height: 100px; 
+    max-width: 100px; 
+  }
+  .user-info, .people-know { height: 520px; }
+  .user-content { 
+    height: 60%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .user-stats { height: 40%; }
+  #stat-num { font-size: 26px; }
+  #stat-label { font-size: 13px; }
+  .user-premium {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
   }
   .searchbar i { left: 40px; }
   .person-know { margin: 4px; }
@@ -404,6 +564,25 @@ header {
 }
 
 @media (max-width: 850px) {
+  /* Index */
+  .login-overlay, .login-banner {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* Home */
+  .post-maker textarea, .post p { font-size: 12px; }
+  .post { padding: 20px; }
+  .info-icon {
+    max-height: 85px;
+    max-width: 85px;
+    margin: 16px auto;
+  }
+  #stat-num { 
+    font-weight: 600;
+    font-size: 24px; 
+  }
+  #stat-label { font-size: 12px; }
   .people-know h3 { margin-right: 0; }
   .person-know p { font-size: 12px; }
 }
@@ -420,14 +599,22 @@ header {
       font-size: 12px;
     }
   }
+  .post-maker textarea, .post p { font-size: 12px; }
   .user-info, .people-know { 
     width: 24%;
     top: 25px;
     margin-top: 25px; 
+    p { font-size: 10px; }
     h3 { 
       font-weight: 500;
       margin-top: 8px; 
     }
+    .user-pronouns { font-size: 11px; }
+  }
+  .info-icon {
+    max-height: 70px;
+    max-width: 70px;
+    margin: 14px auto;
   }
   .post-container { margin: 25px 15px 15px 15px; }
   .poster-name { font-size: 14px; }
@@ -436,15 +623,21 @@ header {
 }
 
 @media (max-width: 740px) {
+  .post-maker textarea, .post p { font-size: 11px; }
   .user-info, .people-know {
-    h3 {
-      font-size: 10px;
-    }
+    h3 { font-size: 11px; }
+    .user-pronouns { font-size: px; }
   }
 
 }
 
 @media (max-width: 720px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 28px; }
+    .job-text { font-size: 16px; }
+  }
+  /* Home */
   header {
     nav {
       margin: 0px 20px;
@@ -461,28 +654,302 @@ header {
     top: 20px;
     margin-top: 20px; 
   }
+  .user-stats { 
+    flex-direction: column; 
+    div { width: 100%; }
+    div + div { margin-left: 0px; }
+  }
+  #stat-num { font-size: 20px; }
+  #stat-label { font-size: 10px; }
   .post-container { margin: 20px 15px 15px 15px; }
   .poster-name { font-size: 12px; }
   .poster-time { font-size: 12px; }
   .searchbar i { top: 33px; }
 }
 
+@media (max-width: 650px) {
+  header nav {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+  .select-menu {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    display: block;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 26px; }
+    .job-text { font-size: 15px; }
+  }
+  /* Home */
+  .poster-time {  
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+  .user-content { padding: 15px; }
+  .user-info, .people-know { 
+    width: 23%;
+    p { font-size: 8px; }
+    .user-pronouns { font-size: 8px; }
+  }
+  .people-know h3 { font-size: 9px; }
+  .info-icon {
+    max-height: 60px;
+    max-width: 60px;
+    margin: 13px auto;
+  }
+}
+
 @media (max-width: 580px) {
-  .user-info, .people-know {
-    h3 {
-      font-size: 8px;
+  .post-container { width: 39%; }
+  .user-info h3, .people-know h3 { font-size: 8px; }
+}
+
+@media (max-width: 525px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 24px; }
+    .job-text { 
+      margin: 32px 0;
+      font-size: 14px; 
     }
   }
-
+  .login-form {
+    input[type=text] {
+      font-size: 12px;
+      height: 45px;
+    }
+    input[type=button] {
+      font-size: 12px;
+      margin: 8px;
+      padding: 10px 14px;
+      border-radius: 7px;
+    }
+  }
+  /* Home */
+  .main-feed { 
+    margin: 20px auto 0px;
+    width: calc(100% - 40px);
+  }
+  .post { 
+    padding: 25px; 
+    p { font-size: 14px; }
+  }
+  .post-maker textarea { font-size: 14px; }
+  .poster-time {  
+    opacity: 1;
+    visibility: visible;
+    position: static;
+  }
+  .user-info, .people-know {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: static;
+    p { font-size: 14px; }
+    h3 { font-size: 16px; }
+    .user-pronouns { font-size: 14px; }
+  }
+  .info-icon { 
+    margin: 20px auto;
+    min-height: 100px; 
+    min-width: 100px; 
+  }
+  .people-know { 
+    margin-bottom: 20px; 
+    padding: 4px 4px 30px;
+    h3 { font-size: 14px; }
+    #person-icon {  
+      height: 50px;
+      min-width: 50px;
+    }
+  }
+  .person-know { margin: 14px 0; }
+  #person-state {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+  }
+  #person-country {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+  }
+  .post-container { 
+    margin: auto;
+    width: calc(100% - 40px);
+  }
+  .main-feed { 
+    display: block; 
+    position: static;
+  }
+  .user-premium {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    margin-bottom: 20px;
+  }
+  .user-stats { 
+    flex-direction: row; 
+    justify-content: space-between;
+    div { width: 40%; }
+    div + div { margin-left: 20px; }
+  }
+  #stat-num { font-size: 22px; }
+  #stat-label { font-size: 11px; }
 }
 
-/*I added this to get the image upload to work*/
-::file-selector-button {
-  display: none;
+@media (max-width: 480px) {
+  .login-container {
+    h3 { font-size: 20px; }
+    .job-text { 
+      margin: 28px 0;
+      font-size: 11px; 
+    }
+  }
+  .login-form {
+    input[type=text] {
+      font-size: 10px;
+      height: 45px;
+    }
+    input[type=button] {
+      font-size: 10px;
+      padding: 9px 13px;
+    }
+  }
 }
 
-.target {
-  position: relative;
-  font-size: 15px;
-  bottom: 3px;
+@media (max-width: 400px) {
+  header .user-icon {  
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@media (max-width: 375px) {
+  .searchbar {
+    margin-left: -10px;
+    i { 
+      top: 37px;
+      font-size: 12px;
+    }
+    input[type=text] { 
+      font-size: 9px;
+      height: 30px;
+      width: 90px; 
+      padding-left: 30px;
+    }
+  }
+  .select-menu { 
+    line-height: 85px;
+    font-size: 9px; 
+  }
+  #person-state {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Index */
+  .login-container {
+    h3 { font-size: 18px; }
+    .job-text { 
+      margin: 28px 0;
+      font-size: 9px; 
+    }
+  }
+  .login-form {
+    input[type=text] {
+      font-size: 8px;
+      height: 30px;
+    }
+    input[type=button] {
+      font-size: 8px;
+      padding: 7px 10px;
+    }
+  }
+  /* Home */
+  .icon {
+    margin-top: 6px;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 12px;
+    a { padding-top: 2px; }
+    i { font-size: 18px; }
+  }
+  .searchbar {
+    i { left: 28px; }
+    input[type=text] { 
+      font-size: 8px;
+      padding-left: 28px;
+      margin-left: 20px;
+      width: 70px; 
+    }
+  }
+  .poster-time {  
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@media (max-width: 290px) {
+  .post { padding: 20px; }
+  .icon {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+  .searchbar {
+    i { 
+      top: 37px;
+      font-size: 12px;
+      left: 16px; 
+    }
+    input[type=text] { 
+      padding-left: 24px;
+      margin-left: 10px; 
+    }
+  }
+  #stat-num { font-size: 21px; }
+  #stat-label { font-size: 10px; }
+  #person-country {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 250px) {
+  .searchbar {
+    i { 
+      visibility: hidden;
+      opacity: 0;
+    }
+    input[type=text] {
+      width: 50px; 
+      font-size: 7px;
+      padding-left: 10px;
+    }
+  }
+  .select-menu { font-size: 7px; }
+  #stat-num { font-size: 19px; }
+  #stat-label { font-size: 9px; }
+  .people-know {
+    margin-bottom: 15px;
+    #person-icon {  
+      height: 45px;
+      min-width: 45px;
+    }
+  }
 }
