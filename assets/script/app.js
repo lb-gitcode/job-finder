@@ -38,7 +38,7 @@ const send = getElement("post-btn");
 const inputText = getElement("new-post-text");
 const target = select(".target");
 const username = select(".username");
-const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "000001", ['Programming', 'Kirby', 'Game development'], ['Siege of Popstar'], false);
+const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "(204) 807-9361", ['Programming', 'Kirby', 'Game development'], ['Siege of Popstar'], false);
 
 username.innerText = user.getUserName();
 
@@ -58,21 +58,20 @@ listen('click', send, function() {
 let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
 
 console.log(users);
-/*
+
 let icon = null;
 let name = null;
 let state = null;
 let country = null;
+const nums = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
 for (let i = 0; i < users.length; i++) {
-  let j = String(i);
-  icon = select(`.icon ${j}`);
-  name = select(`.name ${j}`);
-  state = select(`.state ${j}`);
-  country = select(`.country ${j}`);
+  icon = select(`.icon-${nums[i]}`);
+  name = select(`.name-${nums[i]}`);
+  state = select(`.state-${nums[i]}`);
+  country = select(`.country-${nums[i]}`);
 
-  icon.value = users[i].picture.thumbnail;
-  name.value = `${users[i].name.first} ${users[i].name.last}`;
-  state.value = users[i].location.state;
-  country.value = users[i].nat;
+  //icon = users[i].picture.thumbnail;
+  name.innerText = `${users[i].name.first} ${users[i].name.last}`;
+  state.innerText = users[i].location.state;
+  country.innerText = users[i].nat;
 }
-*/
