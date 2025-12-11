@@ -468,6 +468,14 @@ header {
   border-radius: 50%;
 }
 
+::file-selector-button {
+  display: none;
+}
+
+.target {
+  font-size: 15px;
+}
+
 /* Media Queries */
 
 @media (max-width: 1320px) { 
