@@ -16,6 +16,16 @@ export function setCookie(name, value, maxAge) {
   document.cookie = cookieString;
 }
 
+export function publish(text, image, time, publisher, feed) {
+  if (image != "" && text != "") {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><p>${text}</p><img class="chatImg" src=${image}></div>`;
+  } else if (image == "") {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><p>${text}</p></div>`;
+  } else if (text == "") {
+    feed.innerHTML += `<div class="post white-box"><div class="poster-info flex"><div class="user-icon"></div><p class="poster-name">${publisher}</p><p class="poster-time">${time}</p></div><img class="chatImg" src=${image}></div>`;
+  }
+}
+
 export function getCookie(name) {
   if (document.cookie != null) {
     const cookies = document.cookie;
@@ -42,6 +52,31 @@ export function getCookie(name) {
     }
   }
   return null;
+}
+
+export async function getUsers(endpoint) {
+  let data = null;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/JSON; charset=UTF-8'
+    },
+    mode: 'cors'  
+  }
+  try {
+    const result = await fetch(endpoint, options);
+    if(!result.ok) {
+        throw new error(`${result.status}: ${result.statusText}`)
+    }
+
+    data = await result.json();
+    console.log(data.results);
+    
+
+  } catch(error) {
+    console.log(error.message);
+  }
+  return data.results;
 }
 
 export function getElement(selector, scope = document) { return scope.getElementById(selector); }
