@@ -37,6 +37,7 @@ const feed = getElement("post-feed");
 const send = getElement("post-btn");
 const inputText = getElement("new-post-text");
 const target = select(".target");
+const blankList = target.files;
 const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "(204) 807-9361", ['Programming', 'Kirby', 'Game development'], "Software Developer", "");
 
 
@@ -51,7 +52,7 @@ listen('click', send, function() {
   let name = user.getUserName();
   publish(inputText.value, inputImg, time, name, feed);
   inputText.value = "";
-  inputImg = "";
+  target.files = blankList;
 })
 
 let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10");
