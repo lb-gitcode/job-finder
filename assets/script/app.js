@@ -23,13 +23,13 @@ class User {
 }
 class Subscriber extends User {
   #groups = [];
-  #pages = [];
-  #canMonetize = false;
-  constructor(name, userName, email, id, groups, pages, canMonetize) {
+  #title = "";
+  #icon = "";
+  constructor(name, userName, email, id, groups, title, icon) {
     super(name, userName, email, id);
     this.#groups = groups;
-    this.#pages = pages;
-    this.#canMonetize = canMonetize;
+    this.#title = title;
+    this.#icon = icon;
   }
 }
 
@@ -37,10 +37,8 @@ const feed = getElement("post-feed");
 const send = getElement("post-btn");
 const inputText = getElement("new-post-text");
 const target = select(".target");
-const username = select(".username");
-const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "(204) 807-9361", ['Programming', 'Kirby', 'Game development'], ['Siege of Popstar'], false);
+const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "(204) 807-9361", ['Programming', 'Kirby', 'Game development'], "Software Developer", "");
 
-username.innerText = user.getUserName();
 
 listen('click', send, function() {
   let inputImg = "";
@@ -55,7 +53,7 @@ listen('click', send, function() {
   inputText.value = "";
 })
 
-let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
+let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10");
 
 console.log(users);
 
