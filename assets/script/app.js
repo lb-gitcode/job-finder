@@ -23,13 +23,13 @@ class User {
 }
 class Subscriber extends User {
   #groups = [];
-  #pages = [];
-  #canMonetize = false;
-  constructor(name, userName, email, id, groups, pages, canMonetize) {
+  #title = "";
+  #icon = "";
+  constructor(name, userName, email, id, groups, title, icon) {
     super(name, userName, email, id);
     this.#groups = groups;
-    this.#pages = pages;
-    this.#canMonetize = canMonetize;
+    this.#title = title;
+    this.#icon = icon;
   }
 }
 
@@ -37,10 +37,8 @@ const feed = getElement("post-feed");
 const send = getElement("post-btn");
 const inputText = getElement("new-post-text");
 const target = select(".target");
-const username = select(".username");
-const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "000001", ['Programming', 'Kirby', 'Game development'], ['Siege of Popstar'], false);
+const user = new Subscriber("Rone Kohut", "RoninTheDev", "NoviceProgrammer87@gmail.com", "(204) 807-9361", ['Programming', 'Kirby', 'Game development'], "Software Developer", "");
 
-username.innerText = user.getUserName();
 
 listen('click', send, function() {
   let inputImg = "";
@@ -55,23 +53,23 @@ listen('click', send, function() {
   inputText.value = "";
 })
 
-const users = getUsers("https://randomuser.me/api/?nat=CA&results=10&seed=same");
-console.log(users);
-/*
-let icon = getElement("person-icon");
-let name = getElement("person-name");
-let state = getElement("person-state");
-let country = getElement("person-country");
-for (let i = 1; i < users.length + 1; i++) {
-  let j = String(i);
-  icon = getElement(`person-icon ${j}`);
-  name = getElement(`person-name ${j}`);
-  state = getElement(`person-state ${j}`);
-  country = getElement(`person-country ${j}`);
+let users = await getUsers("https://randomuser.me/api/?nat=CA&results=10");
 
-  icon.value =
-  name.value = String(users[i].name.first + " " + users[i].name.last);
-  state.value =
-  country.value = users[i].nat;
+console.log(users);
+
+let icon = null;
+let name = null;
+let state = null;
+let country = null;
+const nums = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+for (let i = 0; i < users.length; i++) {
+  icon = select(`.icon-${nums[i]}`);
+  name = select(`.name-${nums[i]}`);
+  state = select(`.state-${nums[i]}`);
+  country = select(`.country-${nums[i]}`);
+
+  icon.innerHTML += `<img class="userImg" src=${users[i].picture.thumbnail}>`;
+  name.innerText = `${users[i].name.first} ${users[i].name.last}`;
+  state.innerText = users[i].location.state;
+  country.innerText = users[i].nat;
 }
-*/
