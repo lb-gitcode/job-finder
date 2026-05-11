@@ -9,4 +9,4 @@ Password: DontVibeCode01
 
 [Click here to see!](https://lb-gitcode.github.io/job-finder/)
 
-![Screenshot of the JobFinder login page](https://imgur.com/R8lYm7T)
+![Screenshot of the JobFinder login page](https://i.imgur.com/R8lYm7T.png)
