@@ -7,4 +7,4 @@ All images from http://unsplash.com/ and all icons from https://fontawesome.com/
 Email: NoviceProgrammer87@gmail.com  
 Password: DontVibeCode01
 
-(Click here to see!)[https://lb-gitcode.github.io/job-finder/]
+[Click here to see!](https://lb-gitcode.github.io/job-finder/)
