@@ -1,7 +1,10 @@
-[ https://lb-gitcode.github.io/job-finder/ ]
+Job-Finder is a spoof of LinkedIn. 
 
-Job-Finder is a spoof of LinkedIn. All images from http://unsplash.com/ and all icons from https://fontawesome.com/
+Languages used are JavaScript, HTML, and CSS.
+All images from http://unsplash.com/ and all icons from https://fontawesome.com/
 
 ### Login Credentials:
 Email: NoviceProgrammer87@gmail.com  
 Password: DontVibeCode01
+
+(Click here to see!)[https://lb-gitcode.github.io/job-finder/]
